@@ -31,7 +31,7 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [userType, setUserType] = useState("driver"); // 'driver' or 'customer'
+  const [userType, setUserType] = useState("customer"); // 'driver' or 'customer'
 
   // Toggle drawer visibility
   const toggleDrawer = () => setIsDrawerOpen((prev) => !prev);
