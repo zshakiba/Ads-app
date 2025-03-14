@@ -8,7 +8,7 @@ const ActiveDriversSection = () => {
 
   return (
     <div className="mb-20">
-      <SectionHeader title="رانندگان فعال" viewAllLink="/drivers" />
+      <SectionHeader title="رانندگان فعال" viewAllLink="/drivers"  icon="true"/>
       <DriversGrid
         drivers={drivers}
         className="grid-cols-2 sm:grid-cols-3 md:grid-cols-5"

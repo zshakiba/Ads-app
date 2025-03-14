@@ -9,6 +9,7 @@ const CategoryContent = ({ category, ads, isActive }) => {
       <SectionHeader
         title={`آخرین تبلیغات ${category.name}`}
         viewAllLink={`/ads`}
+        icon="true"
       />
       <AdsGrid ads={ads} />
     </div>

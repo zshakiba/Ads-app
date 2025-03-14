@@ -8,7 +8,7 @@ const PublishedAdsSection = () => {
 
   return (
     <div className="mb-20">
-      <SectionHeader title="آخرین تبلیغات منتشر شده" viewAllLink="/ads" />
+      <SectionHeader title="آخرین تبلیغات منتشر شده" viewAllLink="/ads" icon="true"/>
       <div className="px-12 rounded-xl">
         {ads.length > 0 ? (
           <Carousel
