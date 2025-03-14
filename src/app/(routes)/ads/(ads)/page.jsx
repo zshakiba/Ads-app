@@ -5,6 +5,7 @@ import AdsGrid from "../_component/AdsGrid";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/utils/motion";
 import { useAdsListContext } from "../_context/ads-list-context";
+import Empty from "shared-components/Empty";
 
 const AdsPage = () => {
   const { selectedStatus } = useAdsListContext();
@@ -23,9 +24,7 @@ const AdsPage = () => {
       {filteredAds.length > 0 ? (
         <AdsGrid ads={filteredAds} />
       ) : (
-        <div className="text-center text-secondary-500 text-lg mt-10">
-          هیچ تبلیغی برای این وضعیت یافت نشد.
-        </div>
+        <Empty resourceName="تبلیغی" />
       )}
     </motion.div>
   );

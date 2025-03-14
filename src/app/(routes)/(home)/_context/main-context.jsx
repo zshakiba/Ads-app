@@ -8,7 +8,7 @@ const MainContext = createContext(undefined);
 export const MainProvider = ({ children }) => {
   const [selectedStatus, setSelectedStatus] = useState("all");
   const [selectedAd, setSelectedAd] = useState(ads[0]);
-  const [activeCategory, setActiveCategory] = useState(categories[0].adType);
+  const [activeCategory, setActiveCategory] = useState(categories[0].name);
   return (
     <MainContext.Provider
       value={{

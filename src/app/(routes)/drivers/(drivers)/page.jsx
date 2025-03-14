@@ -5,6 +5,7 @@ import DriversGrid from "../_component/DriversGrid";
 import { drivers } from "@/constants/data";
 import { motion } from "framer-motion";
 import { useDriverListContext } from "../_context/driver-list-context";
+import Empty from "shared-components/Empty";
 
 const DriversPage = () => {
   const { selectedStatus } = useDriverListContext();
@@ -26,9 +27,7 @@ const DriversPage = () => {
           className="grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
         />
       ) : (
-        <div className="text-center text-secondary-500 text-lg mt-10">
-          هیچ تبلیغی برای این وضعیت یافت نشد.
-        </div>
+        <Empty resourceName="تبلیغی" />
       )}
     </motion.div>
   );
