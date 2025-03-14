@@ -1,22 +1,10 @@
 "use client";
 
+import { useDarkMode } from "@/context/DarkModeContext";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
-import { useState, useEffect } from "react";
 
 const DarkModeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Sync with localStorage or system preference
-    const savedMode = localStorage.getItem("darkMode") === "true";
-    setIsDarkMode(savedMode);
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    localStorage.setItem("darkMode", newMode.toString());
-  };
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
 
   return (
     <button onClick={toggleDarkMode}>

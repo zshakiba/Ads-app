@@ -1,6 +1,6 @@
 "use client"; // Ensures this code runs only on the client side
 import { useLocalStorageState } from "@/hooks/useLocalStorageState";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect } from "react";
 
 const DarkModeContext = createContext();
 
