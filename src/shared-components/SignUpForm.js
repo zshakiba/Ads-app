@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Button from "shared-components/Button";
-import RHFTextField from "shared-components/RHFTextField";
-import RHFSelect from "shared-components/RHFSelect";
-import { useRouter } from "next/navigation";
-import Modal from "shared-components/Modal";
+import RHFTextField from "./RHFTextField";
+import { RHFSelect } from "./RHFSelect";
+import Button from "./Button";
+import Modal from "./Modal";
 import SignInForm from "./SignInForm";
+import { useRouter } from "next/navigation";
 
 export default function SignUpForm() {
   const {
