@@ -4,7 +4,7 @@ import vazirFont from "@/constants/localFont";
 import ReactQueryProvider from "@/providers/ReactQueryProvider";
 import "@/styles/globals.css";
 import { Toaster } from "react-hot-toast";
-import { DarkModeProvider } from "@/context/DarkModeContext";
+import { DarkModeProvider, DarkModeProvier } from "@/context/DarkModeContext";
 import { MainProvider } from "./(routes)/(home)/_context/main-context";
 
 export const metadata = {
