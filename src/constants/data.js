@@ -167,6 +167,25 @@ export const driverMenuItems = [
   },
 ];
 
+export const customerMenuItems = [
+  {
+    label: "داشبورد",
+    href: "/profile/customer",
+  },
+  {
+    label: "ثبت تبلیغ",
+    href: "/profile/customer/register-ad",
+  },
+  {
+    label: "پیگیری تبلیغ",
+    href: "/profile/customer/track-ad",
+  },
+  {
+    label: "صورتحساب‌ها",
+    href: "/profile/customer/payments",
+  },
+];
+
 export const benefits = [
   {
     title: "درآمدزایی پایدار",

@@ -14,7 +14,7 @@ import Image from "next/image";
 import DropdownMenu from "shared-components/DropdownMenu";
 import ButtonIcon from "shared-components/ButtonIcon";
 import Avatar from "shared-components/Avatar";
-import { driverMenuItems } from "@/constants/data";
+import { driverMenuItems, customerMenuItems } from "@/constants/data";
 import Modal from "shared-components/Modal";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
@@ -31,6 +31,7 @@ function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [userType, setUserType] = useState("driver"); // 'driver' or 'customer'
 
   // Toggle drawer visibility
   const toggleDrawer = () => setIsDrawerOpen((prev) => !prev);
@@ -60,9 +61,9 @@ function Header() {
 
   return (
     <>
-      <header className="w-full bg-secondary-800 shadow-md ">
+      <header className="w-full bg-secondary-800 shadow-md">
         <nav className="xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto flex justify-between items-center px-8">
-          <div className="w-full flex justify-between items-center ">
+          <div className="w-full flex justify-between items-center">
             {/* Left Section: Logo and Mobile Menu */}
             <div className="flex items-center gap-x-5">
               {isMobile && (
@@ -91,24 +92,15 @@ function Header() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-x-4">
-                  <NavLink
-                    path="/search"
-                    icon={
-                      <MagnifyingGlassIcon className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
-                    }
-                    className="flex flex-row items-center justify-center gap-x-2"
-                  >
-                    جستجوی تبلیغات
-                  </NavLink>
-                  <NavLink
+                  {/* <NavLink
                     path="/advertisers"
                     icon={
                       <UserGroupIcon className="w-5 h-5 ml-2 rtl:ml-0 rtl:mr-2" />
                     }
-                    className="flex flex-row items-center justify-center gap-x-2 "
+                    className="flex flex-row items-center justify-center gap-x-2"
                   >
                     بخش تبلیغ دهندگان
-                  </NavLink>
+                  </NavLink> */}
                 </div>
               </div>
             </div>
@@ -118,15 +110,21 @@ function Header() {
               <div className="hidden md:flex items-center gap-x-4">
                 <button
                   className="text-secondary-200 hover:text-primary-800 transition-all ease-out md:text-sm lg:text-sm hover:scale-110 duration-300"
-                  onClick={() => openModal(<SignInForm />)}
+                  onClick={() => {
+                    setUserType("customer");
+                    openModal(<SignInForm />);
+                  }}
                 >
-                  ورود راننده
+                  ورود
                 </button>
                 <button
                   className="text-secondary-200 hover:text-primary-800 transition-all ease-out md:text-sm lg:text-sm hover:scale-110 duration-300"
-                  onClick={() => openModal(<SignUpForm />)} 
+                  onClick={() => {
+                    setUserType("customer");
+                    openModal(<SignUpForm />);
+                  }}
                 >
-                  ثبت نام راننده
+                  ثبت نام
                 </button>
               </div>
 
@@ -150,7 +148,9 @@ function Header() {
                       </div>
                     </ButtonIcon>
                   }
-                  items={driverMenuItems}
+                  items={
+                    userType === "driver" ? driverMenuItems : customerMenuItems
+                  }
                   isOpen={isMenuOpen}
                   onClose={() => setIsMenuOpen(false)}
                 />
@@ -175,10 +175,18 @@ function Header() {
               </li>
             ))}
             <li>
-              <button onClick={() => openModal(<SignInForm />)}>ورود</button>
+              <button
+                onClick={() => openModal(<SignInForm />)}
+              >
+                ورود مشتری
+              </button>
             </li>
             <li>
-              <button onClick={() => openModal(<SignUpForm />)}>ثبت‌نام</button>
+              <button
+                onClick={() => openModal(<SignUpForm />)}
+              >
+                ثبت‌نام مشتری
+              </button>
             </li>
           </ul>
         </Drawer>

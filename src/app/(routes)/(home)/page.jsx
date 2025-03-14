@@ -9,6 +9,7 @@ import BenefitsSection from "./_component/BenefitsSection";
 import HowItWorksSection from "./_component/HowItWorksSection";
 import CommentsSection from "./_component/CommentsSection";
 import ActiveDriversSection from "./_component/ActiveDriversSection";
+
 // import { useUserContext } from "./_context/home-context";
 
 export default function Home() {
